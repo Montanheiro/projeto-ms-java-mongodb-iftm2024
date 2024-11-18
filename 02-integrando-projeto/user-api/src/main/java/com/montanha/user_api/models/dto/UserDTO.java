@@ -2,7 +2,6 @@ package com.montanha.user_api.models.dto;
 
 import java.time.LocalDateTime;
 
-
 import com.montanha.user_api.models.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -16,6 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDTO {
 
+    private String id;
+    @NotBlank (message = "Nome é obrigatório")
     private String nome;
     @NotBlank(message = "CPF é obrigatório")
     private String cpf;
@@ -25,4 +26,16 @@ public class UserDTO {
     private String telefone;
     private LocalDateTime dataCadastro;
 
+    public static UserDTO convert(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setNome(user.getNome());
+        userDTO.setEndereco(user.getEndereco());
+        userDTO.setCpf(user.getCpf());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setTelefone(user.getTelefone());
+        userDTO.setDataCadastro(user.getDataCadastro());
+        return userDTO;
+    }
 }
+

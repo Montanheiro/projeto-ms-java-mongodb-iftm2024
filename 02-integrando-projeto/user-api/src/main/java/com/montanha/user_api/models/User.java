@@ -2,6 +2,7 @@ package com.montanha.user_api.models;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import com.montanha.user_api.models.dto.UserDTO;
@@ -12,8 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor 
+@Document(collection = "user")
 public class User {
     
+    @Id
+    private String id;
     @Field("nome")
     private String nome;
     @Field("cpf")
@@ -26,5 +30,16 @@ public class User {
     private String telefone;
     @Field("dataCadastro")
     private LocalDateTime dataCadastro;
+
+    public static User convert(UserDTO userDTO) {
+        User user = new User();
+        user.setNome(userDTO.getNome());
+        user.setEndereco(userDTO.getEndereco());
+        user.setCpf(userDTO.getCpf());
+        user.setEmail(userDTO.getEmail());
+        user.setTelefone(userDTO.getTelefone());
+        user.setDataCadastro(userDTO.getDataCadastro());
+        return user;
+    }
 
 }

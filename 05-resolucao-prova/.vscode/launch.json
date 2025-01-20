@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductApiApplication<product-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "lucashumberto.product_api.ProductApiApplication",
+            "projectName": "product-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ShoppingApiApplication<shopping-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "lucashumberto.shopping_api.ShoppingApiApplication",
+            "projectName": "shopping-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserApiApplication<user-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.lucashumberto.user_api.UserApiApplication",
+            "projectName": "user-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -50,7 +50,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/category"
+						"url": "http://localhost:{{productPort}}/category"
 					},
 					"response": []
 				},
@@ -87,7 +87,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/category"
+						"url": "http://localhost:{{productPort}}/category"
 					},
 					"response": []
 				},
@@ -125,12 +125,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/category/pageable?page=0&size=10",
+							"raw": "http://localhost:{{productPort}}/category/pageable?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "{{productPort}}",
 							"path": [
 								"category",
 								"pageable"
@@ -189,7 +189,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/category/{{categoryId}}"
+						"url": "http://localhost:{{productPort}}/category/{{categoryId}}"
 					},
 					"response": []
 				},
@@ -212,7 +212,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8080/category/{{categoryId}}"
+						"url": "http://localhost:{{productPort}}/category/{{categoryId}}"
 					},
 					"response": []
 				},
@@ -247,7 +247,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/category"
+						"url": "http://localhost:{{productPort}}/category"
 					},
 					"response": []
 				}
@@ -317,7 +317,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/product"
+						"url": "http://localhost:{{productPort}}/product"
 					},
 					"response": []
 				},
@@ -369,7 +369,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/product"
+						"url": "http://localhost:{{productPort}}/product"
 					},
 					"response": []
 				},
@@ -425,7 +425,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/product/{{productId}}"
+						"url": "http://localhost:{{productPort}}/product/{{productId}}"
 					},
 					"response": []
 				},
@@ -495,7 +495,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/product/{{productId}}"
+						"url": "http://localhost:{{productPort}}/product/{{productId}}"
 					},
 					"response": []
 				},
@@ -548,12 +548,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/pageable?page=0&size=10",
+							"raw": "http://localhost:{{productPort}}/product/pageable?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "{{productPort}}",
 							"path": [
 								"product",
 								"pageable"
@@ -616,7 +616,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/product/identifier/{{productIdentifier}}"
+						"url": "http://localhost:{{productPort}}/product/identifier/{{productIdentifier}}"
 					},
 					"response": []
 				},
@@ -668,7 +668,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/product/category/{{categoryId}}"
+						"url": "http://localhost:{{productPort}}/product/category/{{categoryId}}"
 					},
 					"response": []
 				},
@@ -691,11 +691,17 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8080/product/{{productId}}"
+						"url": "http://localhost:{{productPort}}/product/{{productId}}"
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "productPort",
+			"value": "8080"
 		}
 	]
 }

@@ -1,8 +1,6 @@
-package com.lucashumberto.user_api.models.dto;
+package com.montanha.dto;
 
 import java.time.LocalDateTime;
-
-import com.lucashumberto.user_api.models.User;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -27,15 +25,4 @@ public class UserDTO {
     private String telefone;
     private LocalDateTime dataCadastro;
 
-    public static UserDTO convert(User user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setNome(user.getNome());
-        userDTO.setEndereco(user.getEndereco());
-        userDTO.setCpf(user.getCpf());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setTelefone(user.getTelefone());
-        userDTO.setDataCadastro(user.getDataCadastro());
-        return userDTO;
-    }
 }

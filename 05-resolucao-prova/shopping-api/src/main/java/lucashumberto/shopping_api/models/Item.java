@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lucashumberto.shopping_api.models.dto.ItemDTO;
+import com.montanha.dto.ItemDTO;
 
 @Data
 @NoArgsConstructor

@@ -1,4 +1,4 @@
-package lucashumberto.product_api.models.dto;
+package com.montanha.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lucashumberto.product_api.models.Product;
 
 @Getter
 @Setter
@@ -32,14 +31,4 @@ public class ProductDTO {
     @NotNull(message = "A categoria do produto deve ser informada")
     private CategoryDTO category;
 
-    public static ProductDTO convert(Product product) {
-        ProductDTO productDTO = new ProductDTO();
-        productDTO.setId(product.getId());
-        productDTO.setProductIdentifier(product.getProductIdentifier());
-        productDTO.setNome(product.getNome());
-        productDTO.setDescricao(product.getDescricao());
-        productDTO.setPreco(product.getPreco());
-        productDTO.setCategory(CategoryDTO.convert(product.getCategoria()));
-        return productDTO;
-    }
 }

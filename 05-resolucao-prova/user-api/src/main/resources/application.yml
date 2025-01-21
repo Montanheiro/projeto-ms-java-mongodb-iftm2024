@@ -3,3 +3,5 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/
       database: user-api-lucashumberto
+server:
+  port: 8080

@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lucashumberto.product_api.models.dto.ProductDTO;
+import com.montanha.dto.ProductDTO;
 
 @Data
 @NoArgsConstructor

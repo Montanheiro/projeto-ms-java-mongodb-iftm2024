@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import lucashumberto.shopping_api.models.dto.ShoppingDTO;
+import com.montanha.dto.ShoppingDTO;
 import lucashumberto.shopping_api.services.ShoppingService;
 
 @RestController

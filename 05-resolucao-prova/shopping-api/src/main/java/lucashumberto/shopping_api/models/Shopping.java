@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lucashumberto.shopping_api.models.dto.ShoppingDTO;
+import com.montanha.dto.ShoppingDTO;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lucashumberto.product_api.models.Category;
-import lucashumberto.product_api.models.dto.CategoryDTO;
+import lucashumberto.product_api.converter.DTOConverter;
+import com.montanha.dto.CategoryDTO;
 import lucashumberto.product_api.repositories.CategoryRepository;
 
 @Service
@@ -21,17 +22,17 @@ public class CategoryService {
 
     public List<CategoryDTO> getAllCategories() {
         return categoryRepository.findAll().stream()
-                .map(CategoryDTO::convert)
+                .map(DTOConverter::convert)
                 .collect(Collectors.toList());
     }
 
     public Page<CategoryDTO> getAllCategoriesPage(Pageable pageable) {
-        return categoryRepository.findAll(pageable).map(CategoryDTO::convert);
+        return categoryRepository.findAll(pageable).map(DTOConverter::convert);
     }
 
     public CategoryDTO saveCategory(CategoryDTO categoryDTO) {
         Category category = Category.fromDTO(categoryDTO);
-        return CategoryDTO.convert(categoryRepository.save(category));
+        return DTOConverter.convert(categoryRepository.save(category));
     }
 
     public CategoryDTO updateCategory(String id, CategoryDTO categoryDTO) {
@@ -40,7 +41,7 @@ public class CategoryService {
         if (optionalCategory.isPresent()) {
             Category category = optionalCategory.get();
             category.setNome(categoryDTO.getNome());
-            return CategoryDTO.convert(categoryRepository.save(category));
+            return DTOConverter.convert(categoryRepository.save(category));
         } else {
             throw new RuntimeException("Categoria não encontrada.");
         }

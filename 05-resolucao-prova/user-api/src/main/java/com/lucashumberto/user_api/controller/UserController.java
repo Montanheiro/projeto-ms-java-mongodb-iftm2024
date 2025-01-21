@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import com.lucashumberto.user_api.models.dto.UserDTO;
+import com.montanha.dto.UserDTO;
 import com.lucashumberto.user_api.services.UserService;
 
 import jakarta.validation.Valid;

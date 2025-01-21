@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lucashumberto.product_api.models.dto.CategoryDTO;
+import com.montanha.dto.CategoryDTO;
 
 @Data
 @NoArgsConstructor

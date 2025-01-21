@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lucashumberto.product_api.models.Category;
 import lucashumberto.product_api.models.Product;
-import lucashumberto.product_api.models.dto.ProductDTO;
+import com.montanha.dto.ProductDTO;
+import lucashumberto.product_api.converter.DTOConverter;
 import lucashumberto.product_api.repositories.CategoryRepository;
 import lucashumberto.product_api.repositories.ProductRepository;
 
@@ -26,12 +27,12 @@ public class ProductService {
     // Retorna todos os produtos
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll().stream()
-                .map(ProductDTO::convert)
+                .map(DTOConverter::convert)
                 .collect(Collectors.toList());
     }
 
     public Page<ProductDTO> getAllProductsPage(Pageable pageable) {
-        return productRepository.findAll(pageable).map(ProductDTO::convert);
+        return productRepository.findAll(pageable).map(DTOConverter::convert);
     }
 
     public List<ProductDTO> getProductsByCategory(String categoryId) {
@@ -39,7 +40,7 @@ public class ProductService {
         if (optionalCategory.isPresent()) {
             return productRepository.findAll().stream()
                     .filter(product -> product.getCategoria().getId().equals(categoryId))
-                    .map(ProductDTO::convert)
+                    .map(DTOConverter::convert)
                     .collect(Collectors.toList());
         } else {
             throw new RuntimeException("Categoria não encontrada.");
@@ -50,7 +51,7 @@ public class ProductService {
         return productRepository.findAll().stream()
                 .filter(product -> product.getProductIdentifier().equals(productIdentifier))
                 .findFirst()
-                .map(ProductDTO::convert)
+                .map(DTOConverter::convert)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado."));
     }
 
@@ -61,7 +62,7 @@ public class ProductService {
             productDTO.setProductIdentifier(UUID.randomUUID().toString());
 
             Product product = Product.fromDTO(productDTO, optionalCategory.get());
-            return ProductDTO.convert(productRepository.save(product));
+            return DTOConverter.convert(productRepository.save(product));
         } else {
             throw new RuntimeException("Categoria não encontrada.");
         }
@@ -77,7 +78,7 @@ public class ProductService {
             product.setDescricao(productDTO.getDescricao());
             product.setPreco(productDTO.getPreco());
             product.setCategoria(optionalCategory.get());
-            return ProductDTO.convert(productRepository.save(product));
+            return DTOConverter.convert(productRepository.save(product));
         } else {
             throw new RuntimeException("Produto ou Categoria não encontrados.");
         }

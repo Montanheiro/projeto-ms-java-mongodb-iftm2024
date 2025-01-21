@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import lucashumberto.product_api.models.dto.CategoryDTO;
+import com.montanha.dto.CategoryDTO;
 import lucashumberto.product_api.services.CategoryService;
 
 @RestController
